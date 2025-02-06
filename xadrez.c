@@ -1,5 +1,23 @@
 #include <stdio.h>
 
+void torre(int n)
+{
+    if (n > 0)
+    {
+        printf("Direita\n");
+        torre(n - 1);
+    }
+}
+
+void rainha(int n)
+{
+    if (n > 0)
+    {
+        printf("Esquerda\n");
+        rainha(n - 1);
+    }
+}
+
 int main()
 {
     // bispo
@@ -7,40 +25,35 @@ int main()
 
     for (int i = 0; i < 5; i++)
     {
-        printf("Cima e Direita\n");
+        for (int j = 0; j < 5; j++)
+        {
+            if (i == j)
+            {
+                printf("Cima e Direita\n");
+            }
+        }
     }
 
     // Torre
     printf("\nTorre: \n");
-
-    for (int i = 0; i < 5; i++)
-    {
-        printf("Direita\n");
-    }
+    torre(5);
 
     // Rainha
     printf("\nRainha: \n");
-
-    for (int i = 0; i < 8; i++)
-    {
-        printf("Esquerda\n");
-    }
+    rainha(8);
 
     // Cavalo
     printf("\nCavalo: \n");
 
-    int horse_steps = 0;
-
-    do
+    for (int i = 0, j = 0; i < 3; i++, j++)
     {
-        for (int i = 0; i < 3; i++)
-        {
-            printf("Baixo\n");
-        }
+        printf("Cima\n");
 
-        printf("Esquerda\n");
-        horse_steps++;
-    } while (horse_steps < 1);
+        if (j == 2)
+        {
+            printf("Direita\n");
+        }
+    }
 
     return 0;
 }
